@@ -15,9 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 //用户注册
-Route::get('/user/reg','User\UserController@reg');
-Route::post('/user/reg','User\UserController@doReg');
+     //个人中心
+Route::post('/pass/login','Pass\PassController@login');
+Route::get('/pass/userl','Pass\PassController@userl');
+Route::get('/pass/aaa','Pass\PassController@aaa');
+Route::get('/aaa','Login\LoginController@aaa');
+Route::post('/pss','Pass\PassController@pss');
 
-Route::get('/user/login','User\UserController@login');           //用户登录
-Route::post('/user/login','User\UserController@doLogin');        //用户登录
-Route::get('/user/center','User\UserController@center');      //个人中心

@@ -1,7 +1,13 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: 王晨琦
- * Date: 2019/3/21
- * Time: 12:00
- */
+
+<form class="form-signin" action="cq.com/user/login" method="post">
+    {{csrf_field()}}
+    <h2 class="form-signin-heading">请登录</h2>
+    <input type="hidden" value="{{$redirect}}" name="redirect">
+    <label for="inputEmail">邮箱</label>
+    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="@" required autofocus>
+    <br>
+    <label for="inputPassword" >密码</label>
+    <input type="password" name="pass" id="inputPassword" class="form-control" placeholder="***" required>
+    <br>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+</form>
