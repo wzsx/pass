@@ -5,6 +5,7 @@ use App\Model\UserModel;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Routing\Router;
+use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Redis;
 
 class PassController extends Controller
