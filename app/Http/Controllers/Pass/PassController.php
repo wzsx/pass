@@ -30,13 +30,16 @@ class PassController extends Controller
         if($id2){
             if(password_verify($pass,$id2->pass)){
                 $token = substr(md5(time().mt_rand(1,99999)),10,10);
-                setcookie('token',$token,time()+86400,'/','cms.com',false,true);
-                setcookie('email',$id2->email,time()+86400,'/','cms.com',false,true);
-                setcookie('uid',$id2->uid,time()+86400,'/','cms.com',false,true);
+                setcookie('token',$token,time()+86400,'/','dan.52self.com',false,true);
+                setcookie('email',$id2->email,time()+86400,'/','dan.52self.com',false,true);
+                setcookie('uid',$id2->uid,time()+86400,'/','dan.52self.com',false,true);
                 $redis_key_web='str:u:web:'.$id2->uid;
                 Redis::set($redis_key_web,$token);
                 Redis::expire($redis_key_web,86400);
                 // echo $redis_key_web;die;
+               // $redis_key_web_token='str:u:token:'.$res->uid;
+//            Redis::del($redis_key_web_token);
+//            Redis::hSet($redis_key_web_token,'web',$token);
                 header("Refresh:3;$r");
                 echo '登录成功';
             } else {
@@ -62,6 +65,10 @@ public function aaa(){
             $redis_key_web='str:u:pass:'.$id->uid;
             Redis::set($redis_key_web,$token);
             Redis::expire($redis_key_web,86400);
+
+//            $redis_key_web_token='str:u:token:'.$res->uid;
+//            Redis::del($redis_key_web_token);
+//            Redis::hSet($redis_key_web_token,'web',$token);
             $response=[
                 'errno'=>0,
                 'msg'=>'登录成功'
