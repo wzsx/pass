@@ -62,13 +62,13 @@ public function aaa(){
             $token = substr(md5(time().mt_rand(1,99999)),10,10);
             setcookie('token',$token,time()+86400,'/','xiuge.52self.cn',false,true);
             setcookie('uid',$id->uid,time()+86400,'/','xiuge.52self.cn',false,true);
-            $redis_key_web='str:u:pass:'.$id->uid;
-            Redis::set($redis_key_web,$token);
-            Redis::expire($redis_key_web,86400);
+//            $redis_key_web='str:u:pass:'.$id->uid;
+//            Redis::set($redis_key_web,$token);
+//            Redis::expire($redis_key_web,86400);
 
-//            $redis_key_web_token='str:u:token:'.$res->uid;
-//            Redis::del($redis_key_web_token);
-//            Redis::hSet($redis_key_web_token,'web',$token);
+            $redis_key_web_token='str:u:token:'.$id->uid;
+            Redis::del($redis_key_web_token);
+            Redis::hSet($redis_key_web_token,'app',$token);
             $response=[
                 'errno'=>0,
                 'msg'=>'登录成功'
