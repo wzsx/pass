@@ -78,7 +78,7 @@ public function aaa(){
             'reg_time' =>time()
         ];
         $id=UserModel::insertGetId($data);
-        //var_dump($id);
+        var_dump($id);
         if($id){
             setcookie('email',$email,time()+86400,'/','xiuge.52self.cn',false,true);
 
