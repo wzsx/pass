@@ -1,5 +1,5 @@
 
-<form class="form-signin" action="cq.com/user/login" method="post">
+<form class="form-signin" action="/pass/login" method="post">
     {{csrf_field()}}
     <h2 class="form-signin-heading">请登录</h2>
     <input type="hidden" value="{{$redirect}}" name="redirect">
