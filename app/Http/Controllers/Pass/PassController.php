@@ -54,6 +54,51 @@ class PassController extends Controller
 public function aaa(){
         echo 1;
 }
+    public function reg(){
+        // echo __METHOD__;
+        $email = $_POST['email'];
+
+        $w = UserModel::where(['email'=>$email])->first();
+        if($w){
+            die("用户名已存在");
+
+        }
+        $pass=$_POST['pass'];
+        $pass2=$_POST['pass2'];
+        if($pass !==$pass2){
+            die( '密码必须保持一致');
+        };
+        $nick_name=$_POST['nick_name'];
+        $pass = password_hash($pass,PASSWORD_BCRYPT);
+        // echo '<pre>';print_r($_POST);echo '</pre>';
+        $data=[
+            'nick_name' => $nick_name,
+            'email' =>$email,
+            'pass'=>$pass,
+            'reg_time' =>time()
+        ];
+        $id=UserModel::insertGetId($data);
+        //var_dump($id);
+        if($id){
+            setcookie('email',$email,time()+86400,'/','xiuge.52self.cn',false,true);
+
+            setcookie('uid',$id,time()+86400,'/','xiuge.52self.cn',false,true);
+            // header("Refresh:3;url=/center");
+            $response=[
+                'errno'=>0,
+                'msg'=>'注册成功'
+            ];
+        }else{
+            $response=[
+                'erron'=>5001,
+                'msg'=>'注册失败'
+            ];
+        }
+        return $response;
+        // header("Refresh:3;url=");
+    }
+
+
     public function pss(){
         $pass=$_POST['pass'];
         $email=$_POST['email'];
