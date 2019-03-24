@@ -118,7 +118,10 @@ public function aaa(){
             Redis::hSet($redis_key_web_token,'app',$token);
             $response=[
                 'errno'=>0,
-                'msg'=>'登录成功'
+                'msg'=>'登录成功',
+                'token'=>$token,
+                'id'=>$id->uid,
+
             ];
         } else {
             $response=[
@@ -129,5 +132,5 @@ public function aaa(){
         }
         return $response;
     }
-
+    
 }
