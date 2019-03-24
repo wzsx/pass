@@ -69,12 +69,14 @@ public function aaa(){
             die( '密码必须保持一致');
         };
         $nick_name=$_POST['nick_name'];
+        $age=$_POST['age'];
         $pass = password_hash($pass,PASSWORD_BCRYPT);
         // echo '<pre>';print_r($_POST);echo '</pre>';
         $data=[
             'nick_name' => $nick_name,
             'email' =>$email,
             'pass'=>$pass,
+            'age'=>$age,
             'reg_time' =>time()
         ];
         $id=UserModel::insertGetId($data);
