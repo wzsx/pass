@@ -120,7 +120,7 @@ public function aaa(){
                 'errno'=>0,
                 'msg'=>'登录成功',
                 'token'=>$token,
-                'id'=>$id->uid,
+                'uid'=>$id->uid,
 
             ];
         } else {
@@ -132,5 +132,5 @@ public function aaa(){
         }
         return $response;
     }
-    
+
 }
