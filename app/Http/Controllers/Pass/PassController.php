@@ -121,6 +121,7 @@ public function aaa(){
                 'msg'=>'登录成功',
                 'token'=>$token,
                 'uid'=>$id->uid,
+                'email'=>$email
 
             ];
         } else {
