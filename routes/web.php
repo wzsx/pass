@@ -23,4 +23,5 @@ Route::get('/aaa','Login\LoginController@aaa');
 Route::post('/pss','Pass\PassController@pss');
 Route::post('/reg','Pass\PassController@reg');
 Route::post('/user/userl','UserController@userl');
+Route::post('/user/login','UserController@login');
 
