@@ -24,7 +24,7 @@ class UsersController extends Controller
 // //        print_r($friend);
 
 //         $data=FriendModel::whereIn('friend_id',$friend_id)->get();
-        $user_id=$_POST['user_id'];
+        $user_id=$_POST['uid'];
         $user_data=UserModel::where(['uid'=>$user_id])->first();
         // print_r($data);
         return $user_data;
