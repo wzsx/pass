@@ -29,4 +29,12 @@ class UsersController extends Controller
         // print_r($data);
         return $user_data;
     }
+    public function cartShow(){
+        $uid=$_POST['uid'];
+        $user_where=[
+            'uid'=>$uid,
+        ];
+        $user_data=UserModel::where(['uid'=>$uid])->first();
+        return $user_data;
+    }
 }
