@@ -9,5 +9,5 @@ class UsersModel extends Model
     //
     public $table = 'api_users';
     public $timestamps = false;
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'user_id';
 }
