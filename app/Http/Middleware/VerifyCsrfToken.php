@@ -21,8 +21,9 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //
         '/pss',
-        'reg',
-        '/user/*'
+        '/reg',
+        '/user/*',
+        '/pass/*',
 
     ];
 }

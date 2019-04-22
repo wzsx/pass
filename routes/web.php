@@ -25,4 +25,6 @@ Route::post('/reg','Pass\PassController@reg');
 Route::post('/user/userl','UserController@userl');
 Route::post('/user/login','UserController@login');
 Route::post('/user/list','UsersController@cartShow');
+Route::get('/openssl','Openssl\OpensslController@openssl');
+Route::get('/openssl/index','OpensslController@index');
 

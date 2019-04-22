@@ -47,7 +47,7 @@ class LoginController extends Controller
         }
 
     }
-    public function aaa(){
+    public function slogin(){
 
     }
 

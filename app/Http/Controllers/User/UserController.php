@@ -16,6 +16,9 @@ class UserController extends Controller
         return view('user.login', $data);
     }
 
+    public function user(){
+        return view('pass.login');
+    }
     public function loginweb(Request $request)
     {
         //echo '<pre>';print_r($_POST);echo '</pre>';
@@ -87,11 +90,11 @@ class UserController extends Controller
             ];
         }
 
-        $user_data = UsersModel::where($user_where)->first();
+        $user_data = UserModel::where($user_where)->first();
         $ktoken = 'token:u:' . $user_data['user_id'];
         $token = $token = str_random(32);
         Redis::hSet($ktoken, 'app:token', $token);
-        Redis::expire($ktoken, 3600 * 24 * 3);
+        Redis::expire($ktoken, 60 * 2);
         if ($user_data) {
             $res_data = [
                 'errcode' => 0,
