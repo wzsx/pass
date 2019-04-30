@@ -36,3 +36,5 @@ Route::get('/demo3', 'User\UssController@demo3');//访问登录页面
 
 Route::post('/goods/list','Goods\GoodsController@goods');   //商品数据接口
 Route::post('/goods/details','Goods\GoodsController@details');
+Route::post('/goods/openssl','Goods\OpensslController@details');
+
