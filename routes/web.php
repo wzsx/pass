@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 //用户注册
      //个人中心
+//Route::get('/pass/login','Pass\PassController@login');
 Route::post('/pass/login','Pass\PassController@login');
 Route::get('/pass/userl','Pass\PassController@userl');
 Route::get('/pass/aaa','Pass\PassController@aaa');
@@ -28,3 +29,9 @@ Route::post('/user/list','UsersController@cartShow');
 Route::get('/openssl','Openssl\OpensslController@openssl');
 Route::get('/openssl/index','OpensslController@index');
 
+
+Route::get('/demo', 'User\UssController@demo');//访问登录页面
+Route::post('/demo2', 'User\UssController@demo2');//访问登录页面
+Route::get('/demo3', 'User\UssController@demo3');//访问登录页面
+
+Route::post('/goods/list','Goods\GoodsController@goods');   //商品数据接口
